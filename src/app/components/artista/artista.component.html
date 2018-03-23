@@ -1,25 +1,27 @@
 <div class="top-30">
 </div>
-
+<div class="container" *ngIf="artista">
 <div class="row">
   <div class="col-md-4">
-<img height="280px" class="rounded-circle thumbnail" [src]="artista?.images | sinfoto" [alt]="artista?.name">
+<img height="280px" class="rounded-circle thumbnail" [src]="artista.images | sinfoto" [alt]="artista.name">
   </div>
   <div class="col-md-6">
-    <h1>{{artista?.name}}</h1>
+    <h1>{{artista.name}}</h1>
     <hr>
-    <h4>Popularity:</h4>
+    <h4>Popularity: {{popularidad}} </h4>
     <div class="progress">
   <div class="progress-bar" role="progressbar" [ngStyle]="{width: popularidad}" aria-valuemin="0" aria-valuemax="100"></div>
   </div>
   <hr>
   <div class="text-centerd">
-    <a class="btn btn-success btn-block" [href]="[artista?.external_urls.spotify]" >Ver en spotify</a>
+    <a class="btn btn-success btn-block" [href]="[artista.external_urls.spotify]" >Ver en spotify</a>
     <a class="btn btn-danger btn-block" [routerLink]="['/search']">Regresar</a>
   </div>
   </div>
 </div>
-<hr>
+<div class="top-30">
+
+</div>
 <div class="row">
   <div class="col-md-12">
     <h1>Top-Tracks</h1>
@@ -27,22 +29,28 @@
     <table class="table table-dark">
   <thead>
     <tr>
-      <th scope="col">Foto</th>
+      <th scope="col">#</th>
       <th scope="col">Cancion</th>
       <th scope="col">Album</th>
       <th scope="col">Respoducir</th>
     </tr>
   </thead>
-  <tbody>
-    <tr *ngFor="let pista of pistas">
-        <td><img class="img-fluid" [src]="pista?.album.images | barra"></td>
-        <td> {{pista?.name}} </td>
-        <td>{{pista?.album.name}}</td>
-        <td><audio controls>
-            <source [src]="pista?.preview_url | audio">Tu navegador es muy viejo
-        </audio></td>
+  <tbody *ngIf="pistas">
+    <tr *ngFor="let pista of pistas;let i=index;">
+        <td>{{i+1}}</td>
+        <td> {{pista.name}} </td>
+        <td>{{pista.album.name}}</td>
+        <td>
+<!--  <audio controls>
+            <source [src]="pista.preview_url | audio">Tu navegador es muy viejo
+        </audio>-->
+        <iframe [src]="pista.uri | domseguro:'https://open.spotify.com/embed?uri='"
+        width="300" height="80" frameborder="0" allowtransparency="true"></iframe>
+
+      </td>
       </tr>
   </tbody>
 </table>
   </div>
+</div>
 </div>

@@ -17,6 +17,7 @@ import { SinfotoPipe } from './pipes/sinfoto.pipe';
 import { ArtistaComponent } from './components/artista/artista.component';
 import { BarraPipe } from './pipes/barra.pipe';
 import { AudioPipe } from './pipes/audio.pipe';
+import { DomseguroPipe } from './pipes/domseguro.pipe';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { AudioPipe } from './pipes/audio.pipe';
     SinfotoPipe,
     ArtistaComponent,
     BarraPipe,
-    AudioPipe
+    AudioPipe,
+    DomseguroPipe
   ],
   imports: [
     BrowserModule,

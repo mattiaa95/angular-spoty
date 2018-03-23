@@ -25,7 +25,7 @@ popularidad:string;
         });
         this._spotifyService.getTop(id).subscribe(data=>{
           this.pistas=data;
-
+          
           console.log(data);
         });
       });
