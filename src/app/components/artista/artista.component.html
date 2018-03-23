@@ -1,0 +1,46 @@
+<div class="top-30">
+</div>
+
+<div class="row">
+  <div class="col-md-4">
+<img height="280px" class="rounded-circle thumbnail" [src]="artista?.images | sinfoto" [alt]="artista?.name">
+  </div>
+  <div class="col-md-6">
+    <h1>{{artista?.name}}</h1>
+    <hr>
+    <h4>Popularity:</h4>
+    <div class="progress">
+  <div class="progress-bar" role="progressbar" [ngStyle]="{width: popularidad}" aria-valuemin="0" aria-valuemax="100"></div>
+  </div>
+  <hr>
+  <div class="text-centerd">
+    <a class="btn btn-danger btn-block" [routerLink]="['/search']">Regresar</a>
+    <a class="btn btn-success btn-block" [href]="[artista?.spotify]" >Ver en spotify</a>
+  </div>
+  </div>
+</div>
+<hr>
+<div class="row">
+  <div class="col-md-12">
+    <h1>Top-Tracks</h1>
+    <hr>
+    <table class="table table-dark">
+  <thead>
+    <tr>
+      <th scope="col">Foto</th>
+      <th scope="col">Cancion</th>
+      <th scope="col">Album</th>
+      <th scope="col">Respoducir</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let pista of pistas">
+        <td><img [src]="pista?.album.images | barra"></td>
+        <td> {{pista?.name}} </td>
+        <td>{{pista?.album.name}}</td>
+        <td><a class="btn btn-success" [href]="[pista?.href]" >Reproducir</a></td>
+      </tr>
+  </tbody>
+</table>
+  </div>
+</div>
