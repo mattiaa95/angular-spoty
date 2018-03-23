@@ -1,16 +1,15 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'barra'
+  name: 'audio'
 })
-export class BarraPipe implements PipeTransform {
+export class AudioPipe implements PipeTransform {
 
-  transform(value: any): string {
+  transform(value: any): any {
     let noimage= "assets/img/noimage.png";
     if (!value) {
         return noimage;
     }
-    return (value.length > 0)? value[2].url : noimage;
+    return value;
+    }
   }
-
-}

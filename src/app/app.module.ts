@@ -16,6 +16,7 @@ import { SearchComponent } from './components/search/search.component';
 import { SinfotoPipe } from './pipes/sinfoto.pipe';
 import { ArtistaComponent } from './components/artista/artista.component';
 import { BarraPipe } from './pipes/barra.pipe';
+import { AudioPipe } from './pipes/audio.pipe';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { BarraPipe } from './pipes/barra.pipe';
     SearchComponent,
     SinfotoPipe,
     ArtistaComponent,
-    BarraPipe
+    BarraPipe,
+    AudioPipe
   ],
   imports: [
     BrowserModule,

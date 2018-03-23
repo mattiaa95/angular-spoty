@@ -14,8 +14,8 @@
   </div>
   <hr>
   <div class="text-centerd">
+    <a class="btn btn-success btn-block" [href]="[artista?.external_urls.spotify]" >Ver en spotify</a>
     <a class="btn btn-danger btn-block" [routerLink]="['/search']">Regresar</a>
-    <a class="btn btn-success btn-block" [href]="[artista?.spotify]" >Ver en spotify</a>
   </div>
   </div>
 </div>
@@ -35,10 +35,12 @@
   </thead>
   <tbody>
     <tr *ngFor="let pista of pistas">
-        <td><img [src]="pista?.album.images | barra"></td>
+        <td><img class="img-fluid" [src]="pista?.album.images | barra"></td>
         <td> {{pista?.name}} </td>
         <td>{{pista?.album.name}}</td>
-        <td><a class="btn btn-success" [href]="[pista?.href]" >Reproducir</a></td>
+        <td><audio controls>
+            <source [src]="pista?.preview_url | audio">Tu navegador es muy viejo
+        </audio></td>
       </tr>
   </tbody>
 </table>
